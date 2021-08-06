@@ -15,10 +15,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <BgImage>
-          <h1>BRACKER</h1>
-          <h2>Keep track of your records and Buisness efficient</h2>
-        </BgImage>
+        <h1>BRACKER</h1>
+        <h2>Keep track of your records and Buisness efficient</h2>
+        <BgImage />
       </main>
       <footer className={styles.footer}>wait for it</footer>
     </div>
