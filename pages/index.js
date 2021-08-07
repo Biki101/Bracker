@@ -2,10 +2,14 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import styled from "styled-components";
 import styles from "../styles/Home.module.css";
+import LandingPageNavBar from "../components/nav-bar.jsx/landing-page-nav";
 
-const BgImage = dynamic(() => import("../components/background-image"), {
-  ssr: false, //setting server side rendering to false for BGimage
-});
+const BgImage = dynamic(
+  () => import("../components/background-image/background-image"),
+  {
+    ssr: false, //setting server side rendering to false for BGimage
+  }
+);
 
 const Wrapper = styled.div`
   z-index: 1;
@@ -14,7 +18,7 @@ const Wrapper = styled.div`
   position: fixed;
   justify-content: center;
   align-items: center;
-  display: flex;
+  // display: flex;
 `;
 
 export default function Home() {
@@ -28,9 +32,12 @@ export default function Home() {
 
       <main className={styles.main}>
         <Wrapper>
-          <h1>BRACKER</h1>
-          <h2>Keep track of your records and Buisness efficient</h2>
-          <footer className={styles.footer}>wait for it</footer>
+          <div className="landing-page">
+            <LandingPageNavBar />
+            <h1>BRACKER</h1>
+            <h2>Keep track of your records and Buisness efficient</h2>
+            <footer className={styles.footer}>wait for it</footer>
+          </div>
         </Wrapper>
         <BgImage />
       </main>
