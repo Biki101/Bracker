@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import styled from "styled-components";
+
+const Box = styled.div`
+  position: fixed;
+  z-index: 0;
+  top: 0;
+`;
 
 const getWindowDimensions = () => {
   const { innerWidth: width, innerHeight: height } = window;
@@ -31,12 +38,14 @@ const BGImage = () => {
 
   if (width && height) {
     return (
-      <Image
-        src="/../public/background/background.png"
-        alt="background-image"
-        width={width}
-        height={height}
-      />
+      <Box>
+        <Image
+          src="/../public/background/background.png"
+          alt="background-image"
+          width={width}
+          height={height}
+        />
+      </Box>
     );
   }
   return null;
