@@ -1,8 +1,10 @@
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import styled from "styled-components";
-import styles from "../styles/Home.module.css";
 import LandingPageNavBar from "../components/nav-bar.jsx/landing-page-nav";
+import Image from "next/image";
+import logo from "../public/logo.png";
+import Login from "../components/login-container/login-container";
 
 const BgImage = dynamic(
   () => import("../components/background-image/background-image"),
@@ -33,8 +35,21 @@ export default function Home() {
         <Wrapper>
           <div className="landing-page">
             <LandingPageNavBar />
-            <h1>BRACKER</h1>
-            <h2>Keep track of your records and Buisness efficient</h2>
+            <div className="flex m-auto mt-10 justify-center items-center bg-gray-700 p-5 w-2/5 rounded-full border border-black">
+              <Image
+                src={logo}
+                width="200"
+                height="200"
+                className="rounded-full items-center"
+                alt="logo"
+              />
+              <h2 className="landing-logo-des text-white ml-3">
+                Keep track of your records and Buisness efficient
+              </h2>
+            </div>
+            <div className="login">
+              <Login />
+            </div>
           </div>
         </Wrapper>
         <BgImage />
