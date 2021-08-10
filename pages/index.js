@@ -47,9 +47,7 @@ export default function Home() {
                 Keep track of your records and Buisness efficient
               </h2>
             </div>
-            <div className="login">
-              <Login />
-            </div>
+            <Login />
           </div>
         </Wrapper>
         <BgImage />
