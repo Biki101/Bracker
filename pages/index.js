@@ -35,7 +35,7 @@ export default function Home() {
         <Wrapper>
           <div className="landing-page">
             <LandingPageNavBar />
-            <div className="flex m-auto mt-10 justify-center items-center bg-gray-700 p-5 w-2/5 rounded-full border border-black">
+            <div className="flex m-auto mt-10 justify-center items-center bg-gray-900 p-5 w-2/5 rounded-full border border-black">
               <Image
                 src={logo}
                 width="200"
