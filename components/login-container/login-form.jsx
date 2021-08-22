@@ -1,9 +1,10 @@
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
-import { SignInWithGoogle } from "../../utils/firebase-utils";
+import { connect } from "react-redux";
 import CustomButton from "../button/button";
+import { googleSignInStart } from "../../redux/user/actions";
 
-const LoginForm = () => {
+const LoginForm = ({ googleSignIn }) => {
   return (
     <form className="flex-row w-full mt-2 items-center ml-auto mr-auto justify-between">
       <input
@@ -17,15 +18,19 @@ const LoginForm = () => {
         className="rounded-full focus:outline-none w-4/5 m-2 p-2"
       />
       <section className="m-auto flex flex-row-reverse justify-between w-3/5 mt-5">
+        <CustomButton />
         <FcGoogle
-          onClick={SignInWithGoogle}
+          onClick={googleSignIn}
           fontSize="30"
           style={{ marginTop: 4 }}
         />
-        <CustomButton />
       </section>
     </form>
   );
 };
 
-export default LoginForm;
+const mapDispatchToProps = (dispatch) => ({
+  googleSignIn: () => dispatch(googleSignInStart()),
+});
+
+export default connect(null, mapDispatchToProps)(LoginForm);

@@ -1,12 +1,12 @@
 import { UserActionTypes } from "./types";
 
-const Inintial_State = {
+const ININTIAL_STATE = {
   currentUser: null,
   isSigningIn: false,
   errorMessage: undefined,
 };
 
-const userReducer = (state = Inintial_State, action) => {
+const userReducer = (state = ININTIAL_STATE, action) => {
   switch (action.type) {
     case UserActionTypes.GOOGLE_SIGNIN_START:
       return {
@@ -16,13 +16,15 @@ const userReducer = (state = Inintial_State, action) => {
     case UserActionTypes.GOOGLE_SIGNIN_SUCESS:
       return {
         ...state,
+        isSigningIn: false,
         currentUser: action.payload,
         errorMessage: null,
       };
     case UserActionTypes.GOOGLE_SIGNIN_FAILURE:
       return {
         ...state,
-        errorMessage: action.payload.message,
+        isSigningIn: false,
+        errorMessage: action.payload,
       };
     default:
       return state;

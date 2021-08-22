@@ -5,6 +5,8 @@ import LandingPageNavBar from "../components/nav-bar.jsx/landing-page-nav";
 import Image from "next/image";
 import logo from "../public/logo.png";
 import Login from "../components/login-container/login-container";
+import { useSelector } from "react-redux";
+import DashBoard from "./dashboard/dashboard";
 
 const BgImage = dynamic(
   () => import("../components/background-image/background-image"),
@@ -23,7 +25,9 @@ const Wrapper = styled.div`
 `;
 
 export default function Home() {
-  return (
+  const currentUser = useSelector((state) => state.user);
+
+  return currentUser ? (
     <div>
       <Head>
         <title>Bracker</title>
@@ -53,5 +57,7 @@ export default function Home() {
         <BgImage />
       </main>
     </div>
+  ) : (
+    <DashBoard />
   );
 }
