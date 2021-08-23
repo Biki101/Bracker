@@ -17,11 +17,9 @@ if (!firebase.apps.length) {
 }
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
-  if (!userAuth) {
-    return;
-  }
+  if (!userAuth) return;
 
-  const userRef = firestore.doc(`users/${userAuth.uid}`);
+  const userRef = firestore.doc(`user/${userAuth.uid}`);
   const snapShot = await userRef.get();
 
   if (!snapShot.exists) {
@@ -39,8 +37,8 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     } catch (error) {
       console.log("error creating user", error.message);
     }
-    return userRef;
   }
+  return userRef;
 };
 
 export const getCurrentUser = () => {

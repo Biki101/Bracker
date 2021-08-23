@@ -21,7 +21,6 @@ export function* getSnapshotFromUserAuth(user) {
 export function* signingInWithGoogle() {
   try {
     const { user } = yield auth.signInWithPopup(googleProvider);
-    console.log(user);
     yield getSnapshotFromUserAuth(user);
   } catch (error) {
     yield put(signInFailure(error.message));
