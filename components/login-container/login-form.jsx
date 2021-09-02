@@ -10,12 +10,12 @@ const LoginForm = ({ googleSignIn }) => {
       <input
         type="text"
         placeholder="Email**"
-        className="w-4/5 focus:outline-none rounded-full p-2 m-2 max-width-cd"
+        className="w-4/5 focus:outline-none max-w-xl rounded-full pl-10 p-2 m-2 max-width-cd"
       />
       <input
-        type="text"
+        type="password"
         placeholder="Password**"
-        className="rounded-full focus:outline-none w-4/5 m-2 p-2"
+        className="rounded-full focus:outline-none w-4/5 m-2 max-w-xl pl-10 p-2"
       />
       <section className="m-auto flex flex-row-reverse justify-between w-3/5 mt-5">
         <CustomButton />

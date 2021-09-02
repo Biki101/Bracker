@@ -25,9 +25,9 @@ const Wrapper = styled.div`
 `;
 
 export default function Home() {
-  const currentUser = useSelector((state) => state.user);
+  const currentUser = useSelector((state) => state.user.currentUser);
 
-  return currentUser ? (
+  return (
     <div>
       <Head>
         <title>Bracker</title>
@@ -36,10 +36,12 @@ export default function Home() {
       </Head>
 
       <main>
-        <Wrapper>
+        {currentUser ? (
+          <DashBoard />
+        ) : (
           <div className="landing-page">
             <LandingPageNavBar />
-            <div className="flex m-auto mt-10 justify-center items-center bg-gray-900 p-5 w-2/5 rounded-full border border-black">
+            <div className="flex m-auto mt-10 justify-center items-center bg-gray-900 p-5 w-2/5 rounded-full border border-black max-w-2xl">
               <Image
                 src={logo}
                 width="200"
@@ -53,11 +55,8 @@ export default function Home() {
             </div>
             <Login />
           </div>
-        </Wrapper>
-        <BgImage />
+        )}
       </main>
     </div>
-  ) : (
-    <DashBoard />
   );
 }

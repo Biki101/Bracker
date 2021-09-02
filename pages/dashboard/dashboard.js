@@ -1,12 +1,13 @@
 import React from "react";
+import Sidebar from "../../components/dashboard-sidebar/sidebar";
 
 const DashBoard = () => {
   return (
-    <div className="dashboard">
-      <h2 className="record-book">Records</h2>
+    <div className="bg-gray-100 w-3/4 mt-20 rounded-xl mx-auto flex flex-row">
+      <Sidebar classname="" />
       <div className="records">
-        <div className="side-bar">sidebar</div>
-        <section className>
+        <h2 className="">DashBoard</h2>
+        <section className="">
           <span className="enter-record">create button</span>
         </section>
         <section>
